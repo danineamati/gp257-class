@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 
 # A Python Function to calculate Pi using the Leibniz formula.
 
@@ -7,7 +8,7 @@ def leibniz(num_terms: int):
     
     # First, we need to assert that the number of terms is an integer.
     # Otherwise, we will get an error (or will be rounding a float).
-    assert isinstance(num_terms, int) f"The entry num_terms is {num_terms} of type {type(num_terms)}, but it should be an integer."
+    assert isinstance(num_terms, int), f"The entry num_terms is {num_terms} of type {type(num_terms)}, but it should be an integer."
 
     # Now we calculate the sequence
     leib_approx = 0 # Start at 0 and add terms from there.
@@ -36,7 +37,13 @@ def leibniz(num_terms: int):
     return leib_approx
 
 if __name__ == "__main__":
-    la_10 = leibniz(10)
-    print(f"\nApproximation of Pi at 10 is {la_10}\n")
+    num_terms = int(1e6)
+    res = leibniz(num_terms)
+    out_txt = f"\nApproximation of Pi at {num_terms} is {res}\n"
+    print(out_txt)
+
+    f=open("result1.txt","w")
+    f.write(out_txt)
+    f.close()
 
 
